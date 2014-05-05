@@ -72,7 +72,7 @@
 
 + (UIColor*)colorWithRGBAHexString:(NSString*)rgbaStrValue
 {
-    if (!rgbStrValue)
+    if (!rgbaStrValue)
     	return nil;
 
     unsigned int rgbHexValue;
