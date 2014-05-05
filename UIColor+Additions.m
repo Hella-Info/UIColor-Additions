@@ -56,6 +56,9 @@
 
 + (UIColor*)colorWithRGBHexString:(NSString*)rgbStrValue
 {
+    if (!rgbStrValue)
+    	return nil;
+    	
     unsigned int rgbHexValue;
     
     NSScanner* scanner = [NSScanner scannerWithString:rgbStrValue];
@@ -69,6 +72,9 @@
 
 + (UIColor*)colorWithRGBAHexString:(NSString*)rgbaStrValue
 {
+    if (!rgbStrValue)
+    	return nil;
+
     unsigned int rgbHexValue;
     
     NSScanner* scanner = [NSScanner scannerWithString:rgbaStrValue];
