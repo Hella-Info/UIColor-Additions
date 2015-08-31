@@ -1,47 +1,52 @@
-UIColor-Additions
+ [![Version](https://cocoapod-badges.herokuapp.com/v/UIColor+Additions/badge.png)](http://cocoadocs.org/docsets/UIColor+Additions) 
+[![Platform](https://cocoapod-badges.herokuapp.com/p/UIColor+Additions/badge.png)](http://cocoadocs.org/docsets/UIColor+Additions) 
+
+![UIColor+Additions](https://raw.githubusercontent.com/vilanovi/UIColor-Additions/master/UIColorAdditionsLogo.jpg)
+
+UIColor+Additions
 =================
 
-Basic additions to make UIColor more flexible.
+UIColor+Additions is a category on **UIColor** that helps the developer making color manipulation more flexible and accessible.
 
----
+### Hexadecimal Color Representation
 
-## HEX notation
+Use the convenience methdos to create colors from hexadecimal integer or string values:
 
-Creating colors from integer values:
+    + (UIColor*)add_colorWithRGBHexValue:(ADDColorType)rgbHexValue;
+    + (UIColor*)add_colorWithRGBAHexValue:(ADDColorType)rgbaHexValue;
+    + (UIColor*)add_colorWithRGBHexString:(NSString*)rgbHexString;
+    + (UIColor*)add_colorWithRGBAHexString:(NSString*)rgbaHexString;
 
-    + (UIColor*)colorWithRGBHex:(unsigned int)rgbValue;
-    + (UIColor*)colorWithRGBAHex:(unsigned int)rgbaValue;
+It is also possible to retrieve the hex reprsentation of a color:
 
-Creating colors from string values:
+    - (BOOL)add_getRGBHexValue:(ADDColorType*)rgbHexValue;
+    - (BOOL)add_getRGBAHexValue:(ADDColorType*)rgbaHexValue;
+    - (NSString*)add_RGBHexString;
+    - (NSString*)add_RGBAHexString;
 
-    + (UIColor*)colorWithRGBHexString:(NSString*)rgbStrValue;
-    + (UIColor*)colorWithRGBAHexString:(NSString*)rgbaStrValue;
+### RGB suport
 
-Retreiving HEX values:
+RGB colors are usually represented in a range of 0-255. UIColor+Additions add convenience methods to create colors:
 
-    - (BOOL)getRGBHex:(unsigned int*)rgbHex;
-    - (BOOL)getRGBAHex:(unsigned int*)rgbaHex;
-    - (NSString*)RGBHexString;
-    - (NSString*)RGBAHexString;
+    + (UIColor*)add_colorWithRed255:(CGFloat)red green255:(CGFloat)green blue255:(CGFloat)blue;
+    + (UIColor*)add_colorWithRed255:(CGFloat)red green255:(CGFloat)green blue255:(CGFloat)blue alpha255:(CGFloat)alpha;
 
-## RGB/RGBA notation
+### Luminiscence
 
-Creating colors from RGB/RGBA 0-255 valeus:
+Easily, retrieve the gray version of a given color by computing the luminiscense value of it. Also, you can check if your color is considered "light" or "dark":
 
-    + (UIColor*)colorWithRed255:(CGFloat)red green255:(CGFloat)green blue255:(CGFloat)blue alpha255:(CGFloat)alpha;
+    - (UIColor*)add_grayColor;
+    - (BOOL)add_isLightColor;
+    - (BOOL)add_isDarkColor;
 
-## Getting related colors
+### Modifying Colors
 
-Changing saturatin or brightness:
+Finally, UIColor+Additions add simple methods to create new lighter, darker, saturated and brightner colors from existing ones:
 
-    - (UIColor*)colorWithSaturation:(CGFloat)newSaturation;
-    - (UIColor*)colorWithBrightness:(CGFloat)newBrightness;
-
-Getting lighter or darker color:
-
-    - (UIColor *)lightenColorWithValue:(CGFloat)value;
-    - (UIColor *)darkenColorWithValue:(CGFloat)value;
-    - (BOOL)isLightColor;
+    - (UIColor*)add_colorWithSaturation:(CGFloat)newSaturation;
+    - (UIColor*)add_colorWithBrightness:(CGFloat)newBrightness;
+    - (UIColor*)add_lighterColorWithValue:(CGFloat)value;
+    - (UIColor*)add_darkerColorWithValue:(CGFloat)value;
 
 ---
 ## Licence ##
